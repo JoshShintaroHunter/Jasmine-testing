@@ -36,7 +36,7 @@ $(function() {
             allFeeds.forEach(function(feed){
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toBe(0);
-            })
+            });
          });
 
 
@@ -49,7 +49,7 @@ $(function() {
             allFeeds.forEach(function(feed){
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toBe(" ");
-            })
+            });
          });
     });
 
