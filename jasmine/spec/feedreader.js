@@ -90,19 +90,61 @@ $(function() {
         }); 
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* Test suite "Initial Entries" */
 
-        /* TODO: Write a test that ensures when the loadFeed
+    describe('Initial Entries', function() {
+        /* Test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         beforeEach(function(done){
+            loadFeed(0,done);
+         });
+
+         it('should contain a ".feed" class',function(){
+            expect($('body').find('.entry')).toHaveClass('entry');
+         });
+
+         it('should have atleast one entry',function(){
+            var feed = $('.feed');
+            expect(feed.find('.entry').length).not.toBe(0);
+         });
+
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
+    describe('New Feed Selection',function(){
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var startingContent;
+        var endingContent;
+
+         beforeEach(function(done){
+            loadFeed(0,function(){
+                startingContent =$('.entry').find("h2")[0].innerText();
+            });
+         });
+         
+        beforeEach(function(done){
+            loadFeed(0,function(){
+                endingContent =$('.entry').find("h2")[0].innerText();
+                done();
+            });
+         });  
+
+        it('should change the content of the feed when it is loaded',function(){
+            expect(startingContent).not.toBe(endingContent);
+        });      
+
+        afterAll(function(done){
+            loadFeed(0,done);
+        });
+
+    });
+
 }());
