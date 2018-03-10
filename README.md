@@ -1,3 +1,10 @@
+#To Run
+Simply open the index.html file using your web browser, make sure all related files are included in their respective folders.
+
+Making changes to the feedreader.js fil will make errors show up on the site, this is useful for further testing.
+
+
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
