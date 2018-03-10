@@ -35,7 +35,7 @@ $(function() {
         it('should have a URL',function(){
             allFeeds.forEach(function(feed){
                 expect(feed.url).toBeDefined();
-                expect(feed.url).not.toBe(0);
+                expect(feed.url.length).not.toBe(0);
             });
          });
 
@@ -128,9 +128,6 @@ $(function() {
             loadFeed(0,function(){
                 startingContent =$('.entry').find("h2")[0].innerText();
             });
-         });
-         
-        beforeEach(function(done){
             loadFeed(0,function(){
                 endingContent =$('.entry').find("h2")[0].innerText();
                 done();
